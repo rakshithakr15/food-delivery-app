@@ -1,0 +1,33 @@
+.cart-item {
+    max-width: 90%;
+    margin: 5rem;
+}
+
+img {
+    height: 2rem;
+    margin: 1rem;
+}
+
+p {
+    margin-bottom: 0px !important;
+}
+
+.delImage {
+    cursor: pointer;
+}
+
+.item-img {
+    height: 10rem;
+}
+
+.cart {
+    height: 600px;
+}
+
+.empty-cart {
+    height: 100%;
+}
+
+.card-body {
+    max-width: 800px;
+}

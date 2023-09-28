@@ -1,0 +1,51 @@
+<div class="cart">
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let cartItem of cartItems" class="card mb-3 cart-item">
+      <div class="row g-0">
+        <div class="d-flex">
+          <img
+            [src]="cartItem.foodImg"
+            class="img-fluid rounded-start item-img"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ cartItem.foodName }}</h5>
+            <p class="card-text">{{ cartItem.foodDetails }}</p>
+            <p class="card-text">
+              <small class="text-muted">{{
+                cartItem.foodPrice | currency : "USD"
+              }}</small>
+            </p>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="p-2">
+              Quantity:
+              <input
+                type="number"
+                class="p-1"
+                (change)="updateItemQuantity($event, cartItem)"
+                [value]="cartItem.quantity"
+                min="1"
+                max="10"
+              />
+            </div>
+            <img
+              src="../../../assets/icons/trash.svg"
+              (click)="deleteItem(cartItem)"
+              alt="Delete"
+              class="delImage"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div
+      class="col-md-12 d-flex align-items-center justify-content-center empty-cart"
+    >
+      <img src="../../../assets/icons/cart.svg" alt="Empty Cart" />
+      <p class="m-2">Your Cart is Empty</p>
+    </div>
+  </ng-template>
+</div>
